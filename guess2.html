@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'>
+	<title>Загадки</title>
+	<link rel="stylesheet" href="style.css">
+	<script type="text/javascript">
+
+		function Play()
+		{	
+			var number = Math.floor(Math.random() * 100) + 1;
+			var userNumber = 0;
+			var counter = 1; //счетчик для определения четности, и как следствие номер участника
+			var numberPlayer
+
+			while (userNumber != number) {
+
+				numberPlayer = ((counter % 2) == 0) ? 2 : 1;
+				userNumber = prompt("Игрок №" + numberPlayer + ": Какое число загадано? (от 1 до 100)", 50);
+				if ((userNumber > 0) && (userNumber <= 100)) {
+					if (userNumber == number) {
+						alert("Игрок №" + numberPlayer + ": Вы угадали!!!");
+						alert("А вы Игрок №" + ((numberPlayer == 1) ? 2 : 1) + ": проиграли!!!");
+					} else if (userNumber > number) {
+						alert("Игрок №" + numberPlayer + ": Загаданное число меньше");
+					} else {
+						alert("Игрок №" + numberPlayer + ": Загаданное число больше");
+					}
+				} else {
+					alert("Игрок №" + numberPlayer + ": Неверный ввод");
+				}
+				counter++;
+			}
+		}
+
+	</script>
+</head>
+<body>
+	<div id="header">
+		<a href="index.html">Главная</a><span>/</span>
+		<a href="quiz.html">Загадки</a><span>/</span>
+		<a href="guess.html">Угадайка</a><span>/</span>
+		<a href="guess2.html">Угадайка мультиплеер</a><span>/</span>
+	</div>
+<div id="content">
+	<h1>Загадки</h1>
+    <div id="center">
+		<h3>Угадайка</h3>			
+	    <div id="box">
+	    	<p>Играет 2 игрока. У вас будет неограниченное количество попыток, чтобы угадать загадку.</p>
+            <br><br/>
+            <a href="#" onclick="Play();">Начать игру</a>
+	    </div>
+    </div>
+</div>
+
+<div id="footer">
+	Copyright © 2016 <a href="https://geekbrains.ru/"> GeekBrains </a>
+</div>
+
+</body>
+</html>
